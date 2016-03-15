@@ -13,6 +13,8 @@ use Devel::StackTrace::AsHTML;
 use Try::Tiny qw( catch try );
 use Plack::Util::Accessor qw( force no_print_errors );
 
+## no critic (ValuesAndExpressions::ProhibitAccessOfPrivateData)
+
 sub call {
     my ( $self, $env ) = @_;
 
@@ -25,7 +27,8 @@ sub call {
     catch {
         $caught = $_;
         [
-            500, [ 'Content-Type', 'text/plain; charset=utf-8' ],
+            500,
+            [ 'Content-Type', 'text/plain; charset=utf-8' ],
             [ no_trace_error( utf8_safe($caught) ) ]
         ];
     };
@@ -44,13 +47,15 @@ sub call {
         $env->{'psgi.errors'}->print($text) unless $self->no_print_errors;
         if ( ( $env->{HTTP_ACCEPT} || '*/*' ) =~ /html/ ) {
             $res = [
-                500, [ 'Content-Type' => 'text/html; charset=utf-8' ],
+                500,
+                [ 'Content-Type' => 'text/html; charset=utf-8' ],
                 [ utf8_safe($html) ]
             ];
         }
         else {
             $res = [
-                500, [ 'Content-Type' => 'text/plain; charset=utf-8' ],
+                500,
+                [ 'Content-Type' => 'text/plain; charset=utf-8' ],
                 [ utf8_safe($text) ]
             ];
         }
@@ -91,6 +96,12 @@ sub utf8_safe {
     $str;
 }
 
+1;
+__END__
+
+# ABSTRACT: Displays stack trace from your exception objects when your app dies
+=pod
+
 =head1 ACKNOWLEDGEMENTS
 
 Parts of this code (in this module file only) were derived from
@@ -98,5 +109,4 @@ L<Plack::MiddleWare::StackTrace>, part of the Plack distribution.
 
 =cut
 
-1;
 
