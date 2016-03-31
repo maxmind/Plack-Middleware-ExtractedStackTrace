@@ -29,7 +29,7 @@ sub call {
         [
             500,
             [ 'Content-Type', 'text/plain; charset=utf-8' ],
-            [ no_trace_error( utf8_safe($caught) ) ]
+            [ _no_trace_error( _utf8_safe($caught) ) ]
         ];
     };
 
@@ -49,14 +49,14 @@ sub call {
             $res = [
                 500,
                 [ 'Content-Type' => 'text/html; charset=utf-8' ],
-                [ utf8_safe($html) ]
+                [ _utf8_safe($html) ]
             ];
         }
         else {
             $res = [
                 500,
                 [ 'Content-Type' => 'text/plain; charset=utf-8' ],
-                [ utf8_safe($text) ]
+                [ _utf8_safe($text) ]
             ];
         }
     }
@@ -64,7 +64,7 @@ sub call {
     return $res;
 }
 
-sub no_trace_error {
+sub _no_trace_error {
     my $msg = shift;
     chomp($msg);
 
@@ -77,7 +77,7 @@ For which no stack trace was captured.
 EOF
 }
 
-sub utf8_safe {
+sub _utf8_safe {
     my $str = shift;
 
     # NOTE: I know messing with utf8:: in the code is WRONG, but
