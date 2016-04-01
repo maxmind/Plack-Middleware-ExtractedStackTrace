@@ -5,7 +5,7 @@ use warnings;
 
 use parent qw/Plack::Middleware/;
 
-our $VERSION = '1.000000';
+our $VERSION = '1.000001';
 
 use Devel::StackTrace;
 use Devel::StackTrace::Extract qw( extract_stack_trace );
