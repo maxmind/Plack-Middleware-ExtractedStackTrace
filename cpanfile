@@ -10,8 +10,13 @@ requires "strict" => "0";
 requires "warnings" => "0";
 
 on 'test' => sub {
+  requires "Carp" => "0";
+  requires "Exception::Class" => "0";
   requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
+  requires "HTTP::Request::Common" => "0";
+  requires "Plack::Builder" => "0";
+  requires "Plack::Test" => "0";
   requires "Test::More" => "0.96";
   requires "perl" => "5.006";
 };
