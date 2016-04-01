@@ -9,7 +9,8 @@ version 1.000000
 # ACKNOWLEDGEMENTS
 
 Parts of this code (in this module file only) were derived from
-[Plack::MiddleWare::StackTrace](https://metacpan.org/pod/Plack::MiddleWare::StackTrace), part of the Plack distribution.
+[Plack::MiddleWare::StackTrace](https://metacpan.org/pod/Plack::MiddleWare::StackTrace), part of the Plack distribution. Copyright for
+code derived from Plack resides with the original holder.
 
 # AUTHOR
 
