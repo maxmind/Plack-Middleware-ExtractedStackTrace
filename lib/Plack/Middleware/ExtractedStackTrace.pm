@@ -105,7 +105,8 @@ __END__
 =head1 ACKNOWLEDGEMENTS
 
 Parts of this code (in this module file only) were derived from
-L<Plack::MiddleWare::StackTrace>, part of the Plack distribution.
+L<Plack::MiddleWare::StackTrace>, part of the Plack distribution. Copyright for
+code derived from Plack resides with the original holder.
 
 =cut
 
