@@ -39,7 +39,7 @@ sub call {
         $trace
         && ( $caught
             || ( $self->force && ref $res eq 'ARRAY' && $res->[0] == 500 ) )
-        ) {
+    ) {
         my $text = $trace->as_string;
         my $html = $trace->as_html;
         $env->{'plack.stacktrace.text'} = $text;
